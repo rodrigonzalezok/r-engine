@@ -204,12 +204,12 @@ Este ejemplo muestra muchas de las funcionalidades disponibles. Puedes usarlo co
       },
       { // Asignaciones específicas si APROBADO y FULL_GCP
         "block_id": "APROBADO_GCP",
-        "condition": { "operator": "AND", "clauses": [ {"field": "Parametros.fullGCP", "operator": "==", "value": True}, {"field": "Decision.estado_final", "operator": "==", "value": "APROBADO"} ]},
+        "condition": { "operator": "AND", "clauses": [ {"field": "Parametros.fullGCP", "operator": "==", "value": true}, {"field": "Decision.estado_final", "operator": "==", "value": "APROBADO"} ]},
         "assignments": [
             {"target": "VariablesDeSalida.limite_credito", "source": "Atributos.limite_preaprobado", "default": 0},
             {"target": "VariablesDeSalida.tasa_interes", "type": "static", "source": 0.25},
             { "target": "VariablesDeSalida.codigo_especial", "type": "formatted_value", "source": "Atributos.cvar_36", "default": "*",
-              "formatting_rules": [ {"condition": {"operator": "==", "value": "-"}, "result": "*"}, {"replace": {"find": "R", "with": "", "ignore_case": True}} ] }
+              "formatting_rules": [ {"condition": {"operator": "==", "value": "-"}, "result": "*"}, {"replace": {"find": "R", "with": "", "ignore_case": true}} ] }
         ]
       },
       { // Asignaciones si NO APROBADO
@@ -229,7 +229,7 @@ Este ejemplo muestra muchas de las funcionalidades disponibles. Puedes usarlo co
          {
              "trigger_field": "Decision.estado_final",
              "trigger_values_for_clearing": ["RECHAZO_ID", "RECHAZO_EDAD", "RECHAZO"],
-             "clear_sensitive_data": True,
+             "clear_sensitive_data": true,
              "fields_to_clear_ref": "campos_sensibles_rechazo"
          }
      ],
